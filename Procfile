@@ -1,1 +1,1 @@
-web: gunicorn protect_project.wsgi
+web: gunicorn 'protect_project.wsgi'
