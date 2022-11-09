@@ -1,0 +1,1 @@
+web: gunicorn protect_project.wsgi
