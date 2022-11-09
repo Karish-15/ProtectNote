@@ -72,6 +72,8 @@ class NoteGetPassword(views.APIView):
             if obj.protected:
                 if self.request.user.is_authenticated and self.request.user == obj.author:
                     return Response({'password': obj.password})
+                else:
+                    return Response({'Error': 'current user not the author of this note'})
             else:
                 return Response({"error": "Requested note is unprotected"}, status=400)
         else:
