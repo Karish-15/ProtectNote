@@ -78,3 +78,7 @@ class NoteGetPassword(views.APIView):
                 return Response({"error": "Requested note is unprotected"}, status=400)
         else:
             return Response({"error": "uniqueID is invalid"}, status=404)
+
+class HomeWelcome(views.APIView):
+    def get(self, request, *args, **kwargs):
+        return Response({"Working": "Send requests to routes to get started"}, status=200)
