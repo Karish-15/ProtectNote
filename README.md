@@ -3,6 +3,8 @@ REST API to implement protected notes sharing where an authenticated user can cr
 
 JWT authentication implemented with PostgreSQL used as database.
 
+API hosted on AWS Elastic Beanstalk and DB hosted on railway.app
+
 ## Routes:
 
 ### Users
