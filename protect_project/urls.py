@@ -20,7 +20,7 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView
 )
 from user_accounts.views import UserTokenView
-from notes.views import HomeWelcome
+from notes.views import Home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +29,5 @@ urlpatterns = [
     path('token/verify', TokenVerifyView.as_view(), name='token_verify'),
     path('users/', include('user_accounts.urls')),
     path('notes/', include('notes.urls')),
-    path('', HomeWelcome.as_view(), name='home'),
+    path('', Home.as_view(), name='home'),
 ]

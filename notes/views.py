@@ -79,6 +79,6 @@ class NoteGetPassword(views.APIView):
         else:
             return Response({"error": "uniqueID is invalid"}, status=404)
 
-class HomeWelcome(views.APIView):
+class Home(views.APIView):
     def get(self, request, *args, **kwargs):
         return Response({"Working": "Send requests to routes to get started"}, status=200)
