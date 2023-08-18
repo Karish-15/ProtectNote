@@ -109,7 +109,12 @@ Response:
     "public": false,
     "protected": true
 }
+
+
 ```
+## Syntax Highlighting:
+
+![syntax-example](https://i.imgur.com/wiltgVs.jpg)
 
 ------------
 
