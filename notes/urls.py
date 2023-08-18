@@ -10,3 +10,4 @@ urlpatterns = [
     path('<slug:uniqueID>/getpassword', views.NoteGetPassword.as_view()),
     
 ]
+
