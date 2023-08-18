@@ -36,6 +36,10 @@ Notes
       	├── protected (Boolean field to protect the note with password)
       	├── password (Automatically generated password for protected notes. Shared among users)
 
+## Syntax Highlighting Example:
+
+![syntax-example](https://i.imgur.com/wiltgVs.jpg)
+
 ## Request Examples
 - ### **`Access a protected note, insert password as form-data`**
 
@@ -112,9 +116,7 @@ Response:
 
 
 ```
-## Syntax Highlighting:
 
-![syntax-example](https://i.imgur.com/wiltgVs.jpg)
 
 ------------
 
