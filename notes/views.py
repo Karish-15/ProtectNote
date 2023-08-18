@@ -2,6 +2,7 @@ from rest_framework import generics, views
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import mixins
 from rest_framework.response import Response
+from django.shortcuts import render
 
 from .models import Notes
 from .serializers import NoteModelSerializer
@@ -47,19 +48,23 @@ class NoteRetrieveAPIView(views.APIView):
                         return Response({'error': 'Password required to access protected note'}, status=400)
                                 
                     elif pwd == obj.password:
-                        return Response(note_serializer.data, status=200)
+                        code_content = note_serializer.data['content']
+                        return render(request, 'show_code.html', {'code_to_highlight': code_content})
                     else:
                         return Response({'error': 'Invalid password to access protected note'}, status=400)
                 else:
                         return Response({'error': 'User authentication required'}, 400)
             else:
                 if obj.public:
-                    return Response(note_serializer.data, status=200)
+                    
+                    code_content = note_serializer.data['content']
+                    return render(request, 'show_code.html', {'code_to_highlight': code_content})
                 else:
                     if self.request.user.is_authenticated:
                         if not self.request.user == obj.author:
                             return Response({'error': 'Current user is not the author of the requested note'}, 400)
-                        return Response(note_serializer.data, status=200)
+                        code_content = note_serializer.data['content']
+                        return render(request, 'show_code.html', {'code_to_highlight': code_content})
                     else:
                         return Response({'error': 'User authentication required'}, 400)
         
