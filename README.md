@@ -28,13 +28,14 @@ JWT authentication implemented with PostgreSQL used as database.
 ## Database Schema
 
 Notes
-      	├── uniqueID (automatically generated UUID to be used as secondary key, unique)
-      	├── content (Text field for contents in the note)
-      	├── language (Text field which can be used for syntax highlighting on the frontend)
-      	├── author (Foreign key to a Django User model)
-      	├── public (Boolean field for whether note is public or not)
-      	├── protected (Boolean field to protect the note with password)
-      	├── password (Automatically generated password for protected notes. Shared among users)
+ - `uniqueID` (automatically generated UUID to be used as secondary key,
+   unique)
+ - `content` (Text field for contents in the note) 
+ - `language` (Text field which can be used for syntax highlighting on the frontend) 
+ - `author` (Foreign key to a Django User model) 
+ - `public` (Boolean field for whether note is public or not) 
+ -  `protected` (Boolean field to protect the note with password) 
+ - `password` (Automatically generated password for protected notes. Shared among users)
 
 ## Syntax Highlighting Example:
 
