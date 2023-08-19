@@ -49,7 +49,8 @@ class NoteRetrieveAPIView(views.APIView):
                                 
                     elif pwd == obj.password:
                         code_content = note_serializer.data['content']
-                        return render(request, 'show_code.html', {'code_to_highlight': code_content})
+                        lang = note_serializer.data['language']
+                        return render(request, 'show_code.html', {'code_to_highlight': code_content, 'language': lang})
                     else:
                         return Response({'error': 'Invalid password to access protected note'}, status=400)
                 else:
@@ -58,13 +59,15 @@ class NoteRetrieveAPIView(views.APIView):
                 if obj.public:
                     
                     code_content = note_serializer.data['content']
-                    return render(request, 'show_code.html', {'code_to_highlight': code_content})
+                    lang = note_serializer.data['language']
+                    return render(request, 'show_code.html', {'code_to_highlight': code_content, 'language': lang})
                 else:
                     if self.request.user.is_authenticated:
                         if not self.request.user == obj.author:
                             return Response({'error': 'Current user is not the author of the requested note'}, 400)
                         code_content = note_serializer.data['content']
-                        return render(request, 'show_code.html', {'code_to_highlight': code_content})
+                        lang = note_serializer.data['language']
+                        return render(request, 'show_code.html', {'code_to_highlight': code_content, 'language': lang})
                     else:
                         return Response({'error': 'User authentication required'}, 400)
         
