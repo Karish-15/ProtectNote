@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 
     'user_accounts',
     'notes',
-
+    'django_extensions',
     'rest_framework',
     'highlightjs',
     'corsheaders'
