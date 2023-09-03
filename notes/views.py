@@ -45,14 +45,14 @@ class NoteRetrieveAPIView(views.APIView):
                 if self.request.user.is_authenticated:
                     pwd = self.request.data.get('password', None)
                     if not pwd:
-                        return Response({'error': 'Password required to access protected note'}, status=400)
+                        return render(request, '403_error.html')
                                 
                     elif pwd == obj.password:
                         code_content = note_serializer.data['content']
                         lang = note_serializer.data['language']
                         return render(request, 'show_code.html', {'code_to_highlight': code_content, 'language': lang})
                     else:
-                        return Response({'error': 'Invalid password to access protected note'}, status=400)
+                        return render(request, '403_error.html')
                 else:
                         return Response({'error': 'User authentication required'}, 400)
             else:

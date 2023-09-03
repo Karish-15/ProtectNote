@@ -25,7 +25,7 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-0jctz*3gp2rpblbc%goz*catb46f8r%l-==!l*h&gvu5=^!b-@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -153,4 +153,7 @@ REST_FRAMEWORK = {
 HIGHLIGHTJS = {
         'style': 'xcode',
     }
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static") 
 
