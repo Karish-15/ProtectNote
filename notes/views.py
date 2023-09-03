@@ -89,4 +89,4 @@ class NoteGetPassword(views.APIView):
 
 class Home(views.APIView):
     def get(self, request, *args, **kwargs):
-        return Response({"Working": "Send requests to routes to get started"}, status=200)
+        return render(request, 'home.html')

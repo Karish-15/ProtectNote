@@ -1,0 +1,145 @@
+<head>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.route{
+  color: #FFADCA;
+  font-family: Courier, monospace;
+  font-size: 14px;
+}
+.auth_text{
+  color: #FFF;
+  font-size: 11px;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  min-height: 100vh;
+}
+.list {
+  position: relative;
+}
+.list h1 {
+  color: #f50057;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.list h2 {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.list ul {
+  position: relative;
+}
+.list ul li {
+  position: relative;
+  left: 0;
+  color: #fce4ec;
+  list-style: none;
+  margin: 4px 0;
+  border-left: 2px solid #f50057;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.list ul li:hover {
+  left: 10px;
+}
+.list ul li span {
+  position: relative;
+  padding: 8px;
+  padding-left: 12px;
+  display: inline-block;
+  z-index: 1;
+  transition: 0.5s;
+}
+.list ul li:hover span {
+  color: #111;
+}
+.list ul li:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f50057;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s;
+}
+.list ul li:hover:before {
+  transform: scaleX(1);
+}
+
+</style>
+</head>
+
+<div class="list">
+  <h1>Send Requests to following routes</h1>
+  <h2><u>Users</u></h2>
+  <ul>
+    <li>
+      <span>
+        <pre class = "route">/users/register  [POST]</pre>
+        Send form-data to create a user
+      </span>
+    </li>
+    <li>
+      <span>
+        <pre class = "route">/users/giveuser  [POST]</pre>
+        Send token in Authorization header to get user info from said token
+      </span>
+    </li>
+    <li>
+      <span>
+        <pre class = "route">/token  [POST]</pre>
+        Send form-data with username and password to get Access and Refresh JWT tokens
+      </span>
+    </li>
+  </ul>
+ <br>
+<h2><u>Notes (Send JWT Access token)</u></h2>
+  <p class="auth_text">Following routes require user to be authenticated</p>
+  <br>
+  <ul>
+    <li>
+      <span>
+        <pre class = "route">/notes/create  [POST]</pre>
+        Send form-data to create a note
+      </span>
+    </li>
+    <li>
+      <span>
+        <pre class = "route">/notes/all  [GET]</pre>
+        Return all notes created by current user
+      </span>
+    </li>
+    <li>
+      <span>
+        <pre class = "route">/notes/&lt;slug:uniqueID>  [GET]</pre>
+        Retrieves note by uniqueID. <br>
+        Password needed for protected notes. No need for authentication if public note
+      </span>
+    </li>
+    <li>
+      <span>
+        <pre class = "route">/notes/&lt;slug:uniqueID>/edit  [PUT/DELETE]</pre>
+        Edit the note (provide relevant form-data) or else delete the note
+      </span>
+    </li>
+    <li>
+      <span>
+        <pre class = "route">/notes/&lt;slug:uniqueID>/getpassword  [GET]</pre>
+        Give password for a protected note. <br>The note should be created by current user.
+      </span>
+    </li>
+  </ul>
+</div>
