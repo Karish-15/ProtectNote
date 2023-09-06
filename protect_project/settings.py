@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-import environ, dj_database_url, os
+import environ, dj_database_url, os, sys
 
 from pathlib import Path
 
@@ -99,6 +99,9 @@ DATABASES = {
         'PORT': env('DB_PORT'),
     }
 }
+
+if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 
 # Password validation
