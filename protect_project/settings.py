@@ -154,7 +154,7 @@ REST_FRAMEWORK = {
 
 
 HIGHLIGHTJS = {
-        'style': 'xcode',
+        'style': 'monokai_sublime',
     }
 
 STATIC_URL = '/static/'
