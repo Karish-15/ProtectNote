@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'protectnote'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCD404135EB44069B7EA3D10378B1AC4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6BAC77C5452A40F884ABC78877581790 }}
