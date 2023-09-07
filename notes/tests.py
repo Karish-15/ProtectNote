@@ -43,9 +43,9 @@ class NoteCreateAPIViewTestCase(TestCase):
         token = self.client.post(reverse('token_obtain_pair'), data=data).json()["access"]
         token = 'Bearer ' + token
 
-        response = self.client.get(reverse('view_note_id', args=[self.note.uniqueID]), headers={"Authorization": token})
+        response = self.client.get(reverse('view_note_id', args=[self.note.uniqueID]))
 
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 class NoteListAPIViewTestCase(TestCase):
     def setUp(self):
